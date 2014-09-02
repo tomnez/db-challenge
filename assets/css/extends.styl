@@ -1,0 +1,50 @@
+//==============================================================
+//   FONT CLASSES FOR @extend
+//==============================================================
+
+// font normal
+.font-regular {
+  font-family: $font-family;
+  font-weight: 400;
+}
+
+// font bold
+.font-bold {
+  font-family: $font-family;
+  font-weight: 700;
+}
+
+// headlines
+.open-large-grey {
+  @extend .font-regular;
+  font-size: 3.7rem;
+  color: $db-slate;
+}
+
+// average font 
+.open-medium-grey {
+  @extend .font-regular;
+  font-size: 2.2rem;
+  color: $db-slate;
+}
+
+// small font 
+.open-large-grey {
+  @extend .font-regular;
+  font-size: 1.5rem;
+  color: $db-slate;
+}
+
+// small font bold
+.open-small-bold {
+  @extend .font-bold;
+  font-size: 1.3rem;
+  color: $db-dark;
+}
+
+// small font bold
+.open-small-regular {
+  @extend .font-regular;
+  font-size: 1.3rem;
+  color: $db-dark;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "dropbox_code_challenge",
+  "description": "HTML and CSS challenge for Dropbox",
+  "repository": "https://github.com/tomnez/db-challenge",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.x",
+    "gulp": "^3.6.2",
+    "gulp-concat": "^2.2.0",
+    "gulp-stylus": "^1.0.0",
+    "gulp-watch": "^0.6.4",
+    "nib": "1.0.2"
+  }
+}
