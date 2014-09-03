@@ -121,10 +121,30 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+h1 {
+  font-size: 3.7rem;
+}
+h2 {
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.3rem;
+}
+h5 {
+  font-size: 1.2rem;
+}
+h6 {
+  font-size: 1rem;
+}
 .font-regular,
 .open-large-grey,
 .open-medium-grey,
-.open-small-regular {
+.open-small-regular,
+button,
+.btn {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
@@ -152,6 +172,63 @@ table {
 .open-small-regular {
   font-size: 1.3rem;
   color: #4c545a;
+}
+h1 {
+  font-size: 3.7rem;
+}
+h2 {
+  font-size: 2.2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.3rem;
+}
+h5 {
+  font-size: 1.2rem;
+}
+h6 {
+  font-size: 1rem;
+}
+button,
+.btn {
+  font-size: 1.5rem;
+  color: #007ee5;
+  background: #fff;
+  padding: 1.1rem 1.7rem;
+  border: 0.1rem solid #007ee5;
+  -webkit-border-radius: 0.3rem;
+  border-radius: 0.3rem;
+}
+button:hover,
+.btn:hover {
+  background: #007ee5;
+  color: #fff;
+  cursor: pointer;
+}
+button.btn-large,
+.btn.btn-large {
+  padding: 2rem 9.6rem;
+  border: 0.2rem solid #0b56bc;
+  font-size: 1.7rem;
+}
+button.btn-blue,
+.btn.btn-blue {
+  background: #007ee5;
+  color: #fff;
+}
+button.btn-blue:hover,
+.btn.btn-blue:hover {
+  background: #0b56bc;
+}
+button.fade,
+.btn.fade {
+  -webkit-transition: background 0.3s, color 0.1s;
+  -moz-transition: background 0.3s, color 0.1s;
+  -o-transition: background 0.3s, color 0.1s;
+  -ms-transition: background 0.3s, color 0.1s;
+  transition: background 0.3s, color 0.1s;
 }
 .stack-full-width {
   position: relative;
@@ -230,4 +307,7 @@ table {
 }
 html {
   font-size: 62.5%; /* 10px browser default */
+}
+.center {
+  text-align: center;
 }

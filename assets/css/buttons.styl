@@ -1,0 +1,75 @@
+//==============================================================
+//   BUTTON: DEFAULT (white with blue text and border)
+//==============================================================
+
+// usage:
+// <button>Click Me</button>
+// <element class="btn">Click Me</element>
+
+button, .btn {
+  @extend .font-regular;
+  font-size: 1.5rem;
+  color: $db-blue;
+  background: $white;
+  padding: 1.1rem 1.7rem;
+  border: .1rem solid $db-blue;
+  border-radius: .3rem;
+
+  &:hover {
+    background: $db-blue;
+    color: $white;
+    cursor: pointer;
+  }
+}
+
+//==============================================================
+//   BUTTON: LARGE
+//==============================================================
+
+// usage:
+// <button class="btn-large">Click Me</button>
+// <element class="btn btn-large">Click Me</element>
+
+button, .btn {
+  &.btn-large {
+    padding: 2rem 9.6rem;
+    border: .2rem solid $db-dark-blue;
+    font-size: 1.7rem;
+  }
+}
+
+//==============================================================
+//   BUTTON: BLUE 
+//==============================================================
+
+// usage:
+// <button class="btn-blue">Click Me</button>
+// <element class="btn btn-blue">Click Me</element>
+
+button, .btn {
+  &.btn-blue {
+    background: $db-blue;
+    color: $white;
+
+    &:hover {
+      background: $db-dark-blue;
+    }
+  }
+}
+
+//==============================================================
+//   BUTTON: TRANSITIONS
+//==============================================================
+
+// optional 'fade' class, add to any button or .btn
+// element to transition in and out of it's hover class.
+
+// usage:
+// <button class="fade">Click Me</button>
+// <element class="btn fade">Click Me</element>
+
+button, .btn {
+  &.fade {
+    transition: background 0.3s, color 0.1s;
+  }
+}
