@@ -139,6 +139,77 @@ h5 {
 h6 {
   font-size: 1rem;
 }
+.sprite {
+  background: url("sprite.png") no-repeat;
+  -webkit-background-size: 1000px 728px;
+  -moz-background-size: 1000px 728px;
+  background-size: 1000px 728px;
+}
+.sprite.dropbox-for-business-why-key-2x {
+  width: 400px;
+  height: 364px;
+  background-position: 0px 0px;
+}
+.sprite.dropbox-for-business-why-watch-2x {
+  width: 400px;
+  height: 364px;
+  background-position: -400px 0px;
+}
+.sprite.dropbox-for-business-why-devices-2x {
+  width: 400px;
+  height: 364px;
+  background-position: 0px -364px;
+}
+.sprite.player_large-2x {
+  width: 212px;
+  height: 212px;
+  background-position: -400px -364px;
+}
+.sprite.dropbox-for-business-why-watch {
+  width: 200px;
+  height: 182px;
+  background-position: -800px 0px;
+}
+.sprite.dropbox-for-business-why-key {
+  width: 200px;
+  height: 182px;
+  background-position: -800px -182px;
+}
+.sprite.dropbox-for-business-why-devices {
+  width: 200px;
+  height: 182px;
+  background-position: -800px -364px;
+}
+.sprite.player_large {
+  width: 106px;
+  height: 106px;
+  background-position: -800px -546px;
+}
+.sprite.white_dropbox_glyph-2x {
+  width: 72px;
+  height: 68px;
+  background-position: -906px -546px;
+}
+.sprite.arrow-right-2x {
+  width: 32px;
+  height: 60px;
+  background-position: -800px -652px;
+}
+.sprite.arrow-left-2x {
+  width: 32px;
+  height: 60px;
+  background-position: -832px -652px;
+}
+.sprite.arrow-right {
+  width: 16px;
+  height: 30px;
+  background-position: -978px -546px;
+}
+.sprite.arrow-left {
+  width: 16px;
+  height: 30px;
+  background-position: -978px -576px;
+}
 .font-regular,
 .open-large-grey,
 .open-medium-grey,
@@ -310,4 +381,7 @@ html {
 }
 .center {
   text-align: center;
+}
+.box {
+  display: inline-block;
 }
