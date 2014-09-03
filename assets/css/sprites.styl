@@ -1,0 +1,133 @@
+// The sprite stylesheet is generated with a gulp task.
+// Changes should be made in this file if you need to
+// change the way sprites.styl is generated.
+
+$sprite-sheets = 'sprites.png';
+
+$sprite-sheet-dimensions = 800px 728px;
+
+
+// Variables
+// ---------
+
+// Hash containing all sprites along with their position and dimensions.
+$sprites = ('arrow-left-2x' (-716px -364px 32px 60px)),
+('arrow-right-2x' (-684px -364px 32px 60px)),
+('dropbox-for-business-why-devices-2x' (0px -364px 400px 364px)),
+('dropbox-for-business-why-key-2x' (-400px 0px 400px 364px)),
+('dropbox-for-business-why-watch-2x' (0px 0px 400px 364px)),
+('player_large-2x' (-400px -364px 212px 212px)),
+('white_dropbox_glyph-2x' (-612px -364px 72px 68px)),
+;
+
+
+// arrow-left-2x
+$sprite-arrow-left-2x-offset-x = -716px;
+$sprite-arrow-left-2x-offset-y = -364px;
+$sprite-arrow-left-2x-width = 32px;
+$sprite-arrow-left-2x-height = 60px;
+
+// arrow-right-2x
+$sprite-arrow-right-2x-offset-x = -684px;
+$sprite-arrow-right-2x-offset-y = -364px;
+$sprite-arrow-right-2x-width = 32px;
+$sprite-arrow-right-2x-height = 60px;
+
+// dropbox-for-business-why-devices-2x
+$sprite-dropbox-for-business-why-devices-2x-offset-x = 0px;
+$sprite-dropbox-for-business-why-devices-2x-offset-y = -364px;
+$sprite-dropbox-for-business-why-devices-2x-width = 400px;
+$sprite-dropbox-for-business-why-devices-2x-height = 364px;
+
+// dropbox-for-business-why-key-2x
+$sprite-dropbox-for-business-why-key-2x-offset-x = -400px;
+$sprite-dropbox-for-business-why-key-2x-offset-y = 0px;
+$sprite-dropbox-for-business-why-key-2x-width = 400px;
+$sprite-dropbox-for-business-why-key-2x-height = 364px;
+
+// dropbox-for-business-why-watch-2x
+$sprite-dropbox-for-business-why-watch-2x-offset-x = 0px;
+$sprite-dropbox-for-business-why-watch-2x-offset-y = 0px;
+$sprite-dropbox-for-business-why-watch-2x-width = 400px;
+$sprite-dropbox-for-business-why-watch-2x-height = 364px;
+
+// player_large-2x
+$sprite-player_large-2x-offset-x = -400px;
+$sprite-player_large-2x-offset-y = -364px;
+$sprite-player_large-2x-width = 212px;
+$sprite-player_large-2x-height = 212px;
+
+// white_dropbox_glyph-2x
+$sprite-white_dropbox_glyph-2x-offset-x = -612px;
+$sprite-white_dropbox_glyph-2x-offset-y = -364px;
+$sprite-white_dropbox_glyph-2x-width = 72px;
+$sprite-white_dropbox_glyph-2x-height = 68px;
+
+
+// Placeholder Class
+// -----------------
+$sprite-image {
+  display: inline-block;
+  background-image: url($sprite-sheets[0]);
+}
+
+// Functions
+// ---------
+
+// Get
+//
+// get($hash, $key);
+//
+// Stylus does not allow for the use of JavaScript objects as values,
+// but we can take advantage of the fact that it allows tuples and
+// use them to create a hash.
+//
+// `$box = ('color' blue) ('size' 3px);`
+//
+// Example usage to retrieve the values:
+//
+//     .my-box {
+//       background-color: get($box, 'color');
+//       width: get($box, 'size');
+//       height: @width;
+//     }
+//
+// $hash - The hash from which to search for a value.
+// $key  - The key for which to get a value.
+//
+// No styleguide reference.
+
+get($hash, $key) {
+  for $pair in $hash {
+    if $pair[0] == $key {
+      return $pair[1];
+    }
+  }
+}
+
+
+// Mixins
+// ------
+
+sprite-position($sprite) {
+  return $sprite[0] $sprite[1];
+}
+
+sprite-width($sprite) {
+  return $sprite[2];
+}
+
+sprite-height($sprite) {
+  return $sprite[3];
+}
+
+sprite($name) {
+  @extend $sprite-image;
+  $sprite = get($sprites, $name);
+  if ($sprite) {
+    width: (sprite-width($sprite) / 2);
+    height: (sprite-height($sprite) / 2);
+    background-position: (sprite-position($sprite)[0] / 2) (sprite-position($sprite)[1] / 2);
+    background-size: ($sprite-sheet-dimensions[0] / 2) ($sprite-sheet-dimensions[1] / 2);
+  }
+}

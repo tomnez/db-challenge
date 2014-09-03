@@ -1,0 +1,99 @@
+// DO NOT DIRECTLY EDIT `sprites.styl`
+
+// The sprite stylesheet is generated with a gulp task.
+// Changes should be made in this file if you need to
+// change the way sprites.styl is generated.
+
+$sprite-sheets = 'sprites.png';
+
+{{#items.length}}
+$sprite-sheet-dimensions = {{items.0.px.total_width}} {{items.0.px.total_height}};
+{{/items.length}}
+
+
+// Variables
+// ---------
+
+{{#items.length}}
+// Hash containing all sprites along with their position and dimensions.
+$sprites = {{#items}}('{{name}}' ({{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}})),
+{{/items}};
+{{/items.length}}
+
+{{#items}}
+
+// {{name}}
+$sprite-{{name}}-offset-x = {{px.offset_x}};
+$sprite-{{name}}-offset-y = {{px.offset_y}};
+$sprite-{{name}}-width = {{px.width}};
+$sprite-{{name}}-height = {{px.height}};
+{{/items}}
+
+
+// Placeholder Class
+// -----------------
+$sprite-image {
+  display: inline-block;
+  background-image: url($sprite-sheets[0]);
+}
+
+// Functions
+// ---------
+
+// Get
+//
+// get($hash, $key);
+//
+// Stylus does not allow for the use of JavaScript objects as values,
+// but we can take advantage of the fact that it allows tuples and
+// use them to create a hash.
+//
+// `$box = ('color' blue) ('size' 3px);`
+//
+// Example usage to retrieve the values:
+//
+//     .my-box {
+//       background-color: get($box, 'color');
+//       width: get($box, 'size');
+//       height: @width;
+//     }
+//
+// $hash - The hash from which to search for a value.
+// $key  - The key for which to get a value.
+//
+// No styleguide reference.
+
+get($hash, $key) {
+  for $pair in $hash {
+    if $pair[0] == $key {
+      return $pair[1];
+    }
+  }
+}
+
+
+// Mixins
+// ------
+
+sprite-position($sprite) {
+  return $sprite[0] $sprite[1];
+}
+
+sprite-width($sprite) {
+  return $sprite[2];
+}
+
+sprite-height($sprite) {
+  return $sprite[3];
+}
+
+sprite($name) {
+  @extend $sprite-image;
+  $sprite = get($sprites, $name);
+  if ($sprite) {
+    width: (sprite-width($sprite) / 2);
+    height: (sprite-height($sprite) / 2);
+    background-position: (sprite-position($sprite)[0] / 2) (sprite-position($sprite)[1] / 2);
+    background-size: ($sprite-sheet-dimensions[0] / 2) ($sprite-sheet-dimensions[1] / 2);
+  }
+}
