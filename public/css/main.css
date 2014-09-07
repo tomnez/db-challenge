@@ -121,6 +121,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+#siteNav .logo {
+  display: inline-block;
+  background-image: url("sprites.png");
+}
 .font-regular,
 .open-large-grey,
 .open-medium-grey,
@@ -330,6 +334,9 @@ p {
   -ms-animation: HERO-INTRO 1.5s 0.5s 1 forwards;
   animation: HERO-INTRO 1.5s 0.5s 1 forwards;
 }
+#heroArea .try-it-free {
+  margin: 1rem 0;
+}
 #heroArea .or {
   color: #8ac7e7;
 }
@@ -396,4 +403,29 @@ p {
     filter: none;
     top: 0;
   }
+}
+#siteNav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+#siteNav .logo {
+  margin: 5rem 0 2.5rem;
+  width: 36px;
+  height: 34px;
+  background-position: -306px -182px;
+  -webkit-background-size: 400px 364px;
+  -moz-background-size: 400px 364px;
+  background-size: 400px 364px;
+}
+#siteNav li {
+  margin: 1.5rem 0;
+}
+#siteNav li a {
+  color: #fff;
+  text-decoration: none;
+}
+#siteNav li a.active {
+  font-weight: 700;
 }
