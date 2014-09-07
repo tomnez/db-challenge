@@ -121,30 +121,17 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-h1 {
-  font-size: 3.7rem;
-}
-h2 {
-  font-size: 2.2rem;
-}
-h3 {
-  font-size: 1.5rem;
-}
-h4 {
-  font-size: 1.3rem;
-}
-h5 {
-  font-size: 1.2rem;
-}
-h6 {
-  font-size: 1rem;
+#siteNav .logo {
+  display: inline-block;
+  background-image: url("sprites.png");
 }
 .font-regular,
 .open-large-grey,
 .open-medium-grey,
 .open-small-regular,
 button,
-.btn {
+.btn,
+#heroArea .headline {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
@@ -175,12 +162,15 @@ button,
 }
 h1 {
   font-size: 3.7rem;
+  margin-bottom: 2rem;
 }
 h2 {
   font-size: 2.2rem;
+  margin-bottom: 1.5rem;
 }
 h3 {
   font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 h4 {
   font-size: 1.3rem;
@@ -198,12 +188,12 @@ button,
   background: #fff;
   padding: 1.1rem 1.7rem;
   border: 0.1rem solid #007ee5;
-  -webkit-border-radius: 0.3rem;
-  border-radius: 0.3rem;
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
 }
 button:hover,
 .btn:hover {
-  background: #007ee5;
+  background: #0b56bc;
   color: #fff;
   cursor: pointer;
 }
@@ -297,6 +287,7 @@ button.fade,
 *,
 *:before,
 *:after {
+  font-family: 'Open Sans', sans-serif;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -306,8 +297,135 @@ button.fade,
   font-size: 1rem;
 }
 html {
+  font-family: 'Open Sans', sans-serif;
   font-size: 62.5%; /* 10px browser default */
+}
+p {
+  margin: 1rem 0;
+  line-height: 1.6;
 }
 .center {
   text-align: center;
+}
+#heroArea {
+  background: #007ee5;
+  padding: 11.9rem 0 16rem 0;
+  color: #fff;
+  overflow: hidden;
+}
+#heroArea .animation-intro {
+  background: url("img/dropbox-for-business-files.png") repeat-x center;
+  -webkit-background-size: 1050px 696px;
+  -moz-background-size: 1050px 696px;
+  background-size: 1050px 696px;
+  position: absolute;
+  top: 100%;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+#heroArea .animation-intro.animate {
+  -webkit-animation: HERO-INTRO 1.5s 0.5s 1 forwards;
+  -moz-animation: HERO-INTRO 1.5s 0.5s 1 forwards;
+  -o-animation: HERO-INTRO 1.5s 0.5s 1 forwards;
+  -ms-animation: HERO-INTRO 1.5s 0.5s 1 forwards;
+  animation: HERO-INTRO 1.5s 0.5s 1 forwards;
+}
+#heroArea .try-it-free {
+  margin: 1rem 0;
+}
+#heroArea .or {
+  color: #8ac7e7;
+}
+#heroArea .buy-it {
+  color: #fff;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .animation-intro {
+    background-image: url("img/dropbox-for-business-files@2x.png");
+  }
+}
+@-moz-keyframes HERO-INTRO {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    top: 100%;
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    top: 0;
+  }
+}
+@-webkit-keyframes HERO-INTRO {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    top: 100%;
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    top: 0;
+  }
+}
+@-o-keyframes HERO-INTRO {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    top: 100%;
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    top: 0;
+  }
+}
+@keyframes HERO-INTRO {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    top: 100%;
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    top: 0;
+  }
+}
+#siteNav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+#siteNav .logo {
+  margin: 5rem 0 2.5rem;
+  width: 36px;
+  height: 34px;
+  background-position: -306px -182px;
+  -webkit-background-size: 400px 364px;
+  -moz-background-size: 400px 364px;
+  background-size: 400px 364px;
+}
+#siteNav li {
+  margin: 1.5rem 0;
+}
+#siteNav li a {
+  color: #fff;
+  text-decoration: none;
+}
+#siteNav li a.active {
+  font-weight: 700;
 }

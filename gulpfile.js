@@ -59,6 +59,7 @@ gulp.task('concat', function() {
 // WATCH FILES ----------------------------------------------------------- //
 gulp.task('watch', function() {
   gulp.watch('./assets/css/*.styl', ['nib']);
+  gulp.watch('./assets/css/components/*.styl', ['nib']);
   gulp.watch(scripts, ['concat']);
 });
 
