@@ -21,7 +21,7 @@
 @import 'animations';
 
 // headers and paragraph
-@import 'text';
+@import 'headers';
 
 // buttons
 @import 'buttons';
@@ -34,6 +34,7 @@
 //==============================================================
 
 *, *:before, *:after {
+  font-family: $font-family;
   box-sizing: border-box;
   border-radius: 0;
   font-size: 16px;
@@ -41,9 +42,27 @@
 }
 
 html {
+  font-family: $font-family;
   font-size: 62.5%; /* 10px browser default */
+}
+
+p {
+  margin: 1rem 0;
+  line-height: 1.6;
 }
 
 .center {
   text-align: center;
 }
+
+//==============================================================
+//   COMPONENTS
+//==============================================================
+
+// main top area
+@import 'components/hero';
+
+// site navigation
+@import 'components/navigation';
+
+
