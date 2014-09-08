@@ -86,3 +86,87 @@ $row-width = ($grid-block * 12) + ($grid-margin * 13);
     }
   }
 }
+
+//==============================================================
+//   MEDIA QUERIES 900px to 1050px
+//==============================================================
+
+@media all and (max-width: 1049px) and (min-width: 900px) {
+  .stack-full-width {
+    .row {
+      width: 90rem;
+      .col {
+        &.one {
+          width: ($grid-block) * .75;
+        }
+        &.two {
+          width: ((($grid-block) * 2) + $grid-margin) * .75;
+        }
+        &.three {
+          width: ((($grid-block) * 3) + (($grid-margin) * 2)) * .75;
+        }
+        &.four {
+          width: ((($grid-block) * 4) + (($grid-margin) * 3)) * .75;
+        }
+        &.five {
+          width: ((($grid-block) * 5) + (($grid-margin) * 4)) * .75;
+        }
+        &.six {
+          width: ((($grid-block) * 6) + (($grid-margin) * 5)) * .75;
+        }
+        &.seven {
+          width: ((($grid-block) * 7) + (($grid-margin) * 6)) * .75;
+        }
+        &.eight {
+          width: ((($grid-block) * 8) + (($grid-margin) * 7)) * .75;
+        }
+        &.nine {
+          width: ((($grid-block) * 9) + (($grid-margin) * 8)) * .75;
+        }
+        &.ten {
+          width: ((($grid-block) * 10) + (($grid-margin) * 9)) * .75;
+        }
+        &.eleven {
+          width: ((($grid-block) * 11) + (($grid-margin) * 10)) * .75;
+        }
+        &.twelve {
+          width: ((($grid-block) * 12) + (($grid-margin) * 11)) * .75;
+        }
+      }
+    }
+  }
+
+}
+
+//==============================================================
+//   MEDIA QUERIES 0px to 899px
+//==============================================================
+
+@media all and (max-width: 899px) {
+
+  .stack-full-width {
+    .row {
+      width: 100%;
+
+      .col {
+        margin-right: 2%;
+
+        &:first-of-type { margin-left: 2%; }
+
+        &.one { width: 32%; }
+        &.two { width: 32%; }
+        &.three { width: 32%; }
+        &.four { width: 47%; }
+        &.five { width: 47%; }
+        &.six { width: 96%; }
+        &.seven { width: 96%; }
+        &.eight { width: 96%; }
+        &.nine { width: 96%; }
+        &.ten { width: 96%; }
+        &.eleven { width: 96%; }
+        &.twelve { width: 96%; }
+      }
+    }
+  }
+
+}
