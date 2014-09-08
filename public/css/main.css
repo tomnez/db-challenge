@@ -121,7 +121,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-#siteNav .logo {
+#siteNav .logo,
+.menu-container .menu-icon {
   display: inline-block;
   background-image: url("sprites.png");
 }
@@ -136,7 +137,9 @@ button,
   font-weight: 400;
 }
 .font-bold,
-.open-small-bold {
+.open-small-bold,
+#siteNav li a.active,
+.menu-container .menu-label {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
 }
@@ -326,6 +329,9 @@ button.fade,
   }
 }
 @media all and (max-width: 899px) {
+  body {
+    background-color: #8899a7;
+  }
   .stack-full-width .row {
     width: 100%;
   }
@@ -431,7 +437,7 @@ p {
 #heroArea .buy-it {
   color: #fff;
 }
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
   .animation-intro {
     background-image: url("img/dropbox-for-business-files@2x.png");
   }
@@ -514,6 +520,61 @@ p {
   color: #fff;
   text-decoration: none;
 }
-#siteNav li a.active {
-  font-weight: 700;
+.menu-container {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  font-size: 1.6rem;
+}
+.menu-container .menu-label {
+  position: absolute;
+  top: 0.2rem;
+  left: 3.5rem;
+}
+.site-wrap {
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  -moz-transition: -moz-transform 0.3s ease-in-out;
+  -o-transition: -o-transform 0.3s ease-in-out;
+  -ms-transition: -ms-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.site-wrap.opened {
+  -webkit-transform: translate3d(250px, 0, 0);
+  -moz-transform: translate3d(250px, 0, 0);
+  -o-transform: translate3d(250px, 0, 0);
+  -ms-transform: translate3d(250px, 0, 0);
+  transform: translate3d(250px, 0, 0);
+}
+@media all and (max-width: 899px) {
+  #siteNav {
+    z-index: 0;
+    padding-left: 2rem;
+    width: 100%;
+  }
+  #siteNav .logo {
+    margin: 1rem 0;
+  }
+  #siteNav li {
+    margin: 2rem 0;
+  }
+  .menu-container {
+    display: block;
+    pointer-events: initial;
+  }
+  .menu-container .menu-icon {
+    width: 25px;
+    height: 21px;
+    background-position: -374px -182px;
+    -webkit-background-size: 400px 364px;
+    -moz-background-size: 400px 364px;
+    background-size: 400px 364px;
+  }
 }

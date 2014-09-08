@@ -144,15 +144,13 @@ $row-width = ($grid-block * 12) + ($grid-margin * 13);
 
 @media all and (max-width: 899px) {
 
+  body { background-color: $db-slate; }
   .stack-full-width {
     .row {
       width: 100%;
-
       .col {
         margin-right: 2%;
-
         &:first-of-type { margin-left: 2%; }
-
         &.one { width: 32%; }
         &.two { width: 32%; }
         &.three { width: 32%; }
