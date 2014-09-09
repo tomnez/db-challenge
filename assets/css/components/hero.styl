@@ -28,7 +28,13 @@
     @extend .font-regular;
   }
 
-  .try-it-free { margin: $spacing 0; }
+  .try-it-free {
+    margin: $spacing 0;
+    &:hover {
+      background: $white;
+      color: $db-blue;
+    }
+  }
   .or { color: #8ac7e7; }
   .buy-it { color: $white; }
 }
