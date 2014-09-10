@@ -1,0 +1,147 @@
+//==============================================================
+//   GALLERY SPECIFIC RULES
+//==============================================================
+
+$gallery-items = 3;
+$gallery-item-display-duration = 3; // seconds
+$gallery-item-transition-duration = 1; // seconds
+$gallery-item-total-duration = ($gallery-item-transition-duration * 2) + $gallery-item-display-duration;
+$gallery-total-duration = ($gallery-item-total-duration * $gallery-items) - ($gallery-item-transition-duration * 2);
+
+.control-active {
+  color: lime;
+}
+
+.control-inactive {
+  color: blue;
+}
+
+// layout
+.gallery {
+  position: relative;
+  height: 300px;
+
+  .item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: grey;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity .25s;
+
+    &:first-of-type {
+      opacity: 1;
+    }
+  }
+
+  .controls {
+    @extend .control-inactive;
+    position: absolute;
+    bottom: -4rem;
+    width: 100%;
+    font-size: 4rem;
+    text-align:center;
+    z-index: 11;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+// controls
+.gallery {
+  .item {
+    animation: GALLERY_ANIMATION ($gallery-total-duration - $gallery-item-transition-duration)s infinite;
+  }
+  .controls {
+    .control-item {
+      animation: CONTROL_ANIMATION ($gallery-total-duration - $gallery-item-transition-duration)s infinite;
+    }
+  }
+  .control-operator {
+    // stop link hash jump FTW
+    display: none;
+
+    // stop playing animations
+    // if an item was selected
+    &:target ~ .item {
+      animation: none;
+    }
+    &:target ~ .controls .control-item {
+      @extend .control-inactive;
+      animation: none;
+    }
+  }
+}
+
+// 3 is total number of items
+for i in (1..$gallery-items)
+  $delay = (i - 1) * (($gallery-item-total-duration) - $gallery-item-transition-duration);
+  .gallery .control-operator:nth-of-type({i}):target ~ .item:nth-of-type({i}) { opacity: 1; }
+  .gallery .control-operator:nth-of-type({i}):target ~ .controls .control-item:nth-of-type({i}) {
+    @extend .control-active;
+  }
+  .item:nth-of-type({i}) {
+    animation-delay: ($delay)s;
+  }
+  .controls .control-item:nth-of-type({i}) {
+    animation-delay: ($delay)s;
+  }
+
+// fade animation
+@keyframes GALLERY_ANIMATION {
+  0% {
+    opacity: 0;
+  }
+  7.69%, 30.77% {
+    opacity: 1;
+  }
+  38.46%, 100% {
+    opacity: 0;
+  }
+}
+
+// controls animate with their items
+@keyframes CONTROL_ANIMATION {
+  0% {
+    color: blue;
+  }
+  7.69%, 30.77% {
+    color: lime;
+  }
+  38.46%, 100% {
+    color: blue;
+  }
+}
+
+
+//==============================================================
+//   HERO AREA / PAGE TOP
+//==============================================================
+
+#doForTeam {
+  padding: 10rem 0;
+}
+
+//==============================================================
+//   ANIMATIONS
+//==============================================================
+
+@keyframes ANIM {
+
+}
+
+//==============================================================
+//   MEDIA QUERIES: RETINA
+//==============================================================
+
+@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dppx) {
+
+}
