@@ -4,6 +4,15 @@
 
 @media all and (max-width: 899px) {
 
+  // BUTTONS
+  // ----------------------------------
+  button, .btn {
+    &.btn-large {
+      padding: 1.5rem 3rem;
+      font-size: 2rem;
+    }
+  }
+
   // GRID
   // ----------------------------------
   body { background-color: $db-slate; }
@@ -21,11 +30,14 @@
 
   // HERO SPOT
   // ----------------------------------
-  .stack-full-width {
-    .row {
-      .col.six {
-        width: 90%;
-        margin: 0 5%
+  #heroArea {
+    padding: 11rem 0 7rem;
+    &.stack-full-width {
+      .row {
+        .col.six {
+          width: 90%;
+          margin: 0 5%
+        }
       }
     }
   }
