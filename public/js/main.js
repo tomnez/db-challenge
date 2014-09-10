@@ -3,6 +3,8 @@
   // DOM ready functionality
   $(document).ready(function() {
 
+    var animationEnd = 'webkitAnimationEnd oanimationend msAnimationEnd animationend transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd';
+
     // OPEN / CLOSE MENU
     // ----------------------------------------------
     var siteWrap = $('.site-wrap')
@@ -37,9 +39,17 @@
       $(window).on('scroll', scrollHandler);
     }
 
-    // apply animation and remove scroll listener
+    // apply animation class
     function animateBusinessImages() {
-      windows.find('[class^="business"]').addClass('animate');
+      var images = windows.find('span[class^="business"]');
+      images.addClass('animate');
+
+      // prevent animation from running a second time
+      windows.last().on(animationEnd, function() {
+        images.addClass('final-state').removeClass('animate');
+      });
+
+      // remove scroll listener
       $(window).off('scroll', scrollHandler);
     }
 
