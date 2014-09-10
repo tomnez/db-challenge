@@ -1,0 +1,105 @@
+//==============================================================
+//   MEDIA QUERIES 0px to 899px
+//==============================================================
+
+@media all and (max-width: 899px) {
+
+  // GRID
+  // ----------------------------------
+  body { background-color: $db-slate; }
+  .stack-full-width {
+    .row {
+      width: 100%;
+      .col {
+        margin-right: 2%;
+        &:first-of-type {
+          margin-left: 2%;
+        }
+      }
+    }
+  }
+
+  // HERO SPOT
+  // ----------------------------------
+  .stack-full-width {
+    .row {
+      .col.six {
+        width: 90%;
+        margin: 0 5%
+      }
+    }
+  }
+
+  // SITE NAVIGATION
+  // ----------------------------------
+  #siteNav {
+    z-index: 0;
+    padding-left: 2rem;
+    width: 100%;
+
+    .logo {
+      margin: 1rem 0;
+    }
+
+    li {
+      margin: 2rem 0;
+    }
+  }
+
+  // menu icon
+  .menu-container {
+    display: block;
+    pointer-events: initial;
+    .menu-icon {
+      sprite('menu-icon');
+    }
+  }
+
+  // BUSINESS TRIO
+  // ----------------------------------
+  #dropboxBusiness {
+    padding: 3rem 0 2rem;
+
+    // grid overrides
+    &.stack-full-width {
+      .row {
+        .col.four {
+          width: 90%;
+          margin: 5% 5% 0;
+        }
+      }
+    }
+
+    h1 {
+      margin-bottom: 7rem;
+    }
+
+    .why-business-description {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #f5f5f5;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+
+    // Animation for mobile devices
+    .business-window {
+      .business-power,
+      .business-security,
+      .business-investment {
+        transform: none;
+        transition: opacity 1s;
+        -webkit-filter: none;
+        filter: none;
+        opacity: 0;
+        &.animate {
+          animation: none;
+          opacity: 1;
+        }
+      }
+
+    }
+  }
+
+}

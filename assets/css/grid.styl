@@ -139,34 +139,3 @@ $row-width = ($grid-block * 12) + ($grid-margin * 13);
   }
 
 }
-
-//==============================================================
-//   MEDIA QUERIES 0px to 899px
-//==============================================================
-
-@media all and (max-width: 899px) {
-
-  body { background-color: $db-slate; }
-  .stack-full-width {
-    .row {
-      width: 100%;
-      .col {
-        margin-right: 2%;
-        &:first-of-type { margin-left: 2%; }
-        &.one { width: 32%; }
-        &.two { width: 32%; }
-        &.three { width: 32%; }
-        &.four { width: 47%; }
-        &.five { width: 47%; }
-        &.six { width: 96%; }
-        &.seven { width: 96%; }
-        &.eight { width: 96%; }
-        &.nine { width: 96%; }
-        &.ten { width: 96%; }
-        &.eleven { width: 96%; }
-        &.twelve { width: 96%; }
-      }
-    }
-  }
-
-}

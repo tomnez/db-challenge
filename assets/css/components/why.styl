@@ -2,16 +2,10 @@
 //   WHY DROPBOX FOR BUSINESS?
 //==============================================================
 
-// extend class for start state of each image
-.business-image-start {
-  transform: translate3d(-22rem,0,0) scale(.5);
-  -webkit-filter: blur(5px);
-  filter: blur(5px);
-  opacity: 0;
-}
-
+// begin classes for component
 #dropboxBusiness {
   padding: 7.8rem 0 5.9rem;
+  background: $white;
 
   // three images
   .business-window {
@@ -20,33 +14,51 @@
     height: 20rem;
     width: 100%;
 
+    // Shared
+    .business-power,
+    .business-security,
+    .business-investment {
+      // start state for trio image
+      transform: translate3d(-22rem,0,0) scale(.5);
+      -webkit-filter: blur(5px);
+      filter: blur(5px);
+      opacity: 0;
+
+      &.animate {
+        animation: BUSINESS_TRANSITION_IN .55s 1 forwards;
+      }
+
+      &.final-state {
+        transform: translate3d(0,0,0) scale(1);
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        opacity: 1;
+      }
+    }
+
+    // The Power to do More
     .business-power {
       sprite('dropbox-for-business-why-devices-2x');
-      @extend .business-image-start;
-      &.animate {
-        // name, duration, delay, iterations, fill-mode.
-        animation: BUSINESS_TRANSITION_IN .55s 0s 1 forwards;
-      }
     }
 
+    // Security Inspires Confidence
     .business-security {
       sprite('dropbox-for-business-why-watch-2x');
-      @extend .business-image-start;
       &.animate {
-        animation: BUSINESS_TRANSITION_IN .55s .25s 1 forwards;
+        animation-delay: .25s;
       }
     }
 
+    // A Smarter Investment
     .business-investment {
       sprite('dropbox-for-business-why-key-2x');
-      @extend .business-image-start;
       &.animate {
-        animation: BUSINESS_TRANSITION_IN .55s .5s 1 forwards;
+        animation-delay: .5s;
       }
     }
   }
 
-  .why-business-desciption {
+  .why-business-description {
     @extend .open-large-grey;
   }
 
@@ -57,10 +69,6 @@
 //==============================================================
 
 @keyframes BUSINESS_TRANSITION_IN {
-  0% {
-    @extend .business-image-start;
-  }
-
   60% {
     transform: translate3d(2rem, 0, 0);
   }
@@ -79,23 +87,4 @@
     filter: blur(0);
     opacity: 1;
   }
-}
-
-//==============================================================
-//   MEDIA QUERIES: RETINA
-//==============================================================
-
-@media 
-(-webkit-min-device-pixel-ratio: 2), 
-(min-resolution: 192dppx) {
-
-
-}
-
-//==============================================================
-//   MEDIA QUERIES: WINDOW
-//==============================================================
-@media all and (max-width: 899px) {
-
-
 }

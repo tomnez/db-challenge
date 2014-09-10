@@ -122,10 +122,10 @@ table {
   border-spacing: 0;
 }
 #siteNav .logo,
-.menu-container .menu-icon,
 #dropboxBusiness .business-window .business-power,
 #dropboxBusiness .business-window .business-security,
-#dropboxBusiness .business-window .business-investment {
+#dropboxBusiness .business-window .business-investment,
+.menu-container .menu-icon {
   display: inline-block;
   background-image: url("sprites.png");
 }
@@ -136,7 +136,7 @@ table {
 button,
 .btn,
 #heroArea .headline,
-#dropboxBusiness .why-business-desciption {
+#dropboxBusiness .why-business-description {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
@@ -148,7 +148,7 @@ button,
   font-weight: 700;
 }
 .open-large-grey,
-#dropboxBusiness .why-business-desciption {
+#dropboxBusiness .why-business-description {
   font-size: 3.7rem;
   color: #8899a7;
 }
@@ -157,7 +157,7 @@ button,
   color: #8899a7;
 }
 .open-large-grey,
-#dropboxBusiness .why-business-desciption {
+#dropboxBusiness .why-business-description {
   font-size: 1.5rem;
   color: #8899a7;
 }
@@ -334,56 +334,6 @@ button.fade,
   }
   .stack-full-width .row .col.twelve {
     width: 74.25rem;
-  }
-}
-@media all and (max-width: 899px) {
-  body {
-    background-color: #8899a7;
-  }
-  .stack-full-width .row {
-    width: 100%;
-  }
-  .stack-full-width .row .col {
-    margin-right: 2%;
-  }
-  .stack-full-width .row .col:first-of-type {
-    margin-left: 2%;
-  }
-  .stack-full-width .row .col.one {
-    width: 32%;
-  }
-  .stack-full-width .row .col.two {
-    width: 32%;
-  }
-  .stack-full-width .row .col.three {
-    width: 32%;
-  }
-  .stack-full-width .row .col.four {
-    width: 47%;
-  }
-  .stack-full-width .row .col.five {
-    width: 47%;
-  }
-  .stack-full-width .row .col.six {
-    width: 96%;
-  }
-  .stack-full-width .row .col.seven {
-    width: 96%;
-  }
-  .stack-full-width .row .col.eight {
-    width: 96%;
-  }
-  .stack-full-width .row .col.nine {
-    width: 96%;
-  }
-  .stack-full-width .row .col.ten {
-    width: 96%;
-  }
-  .stack-full-width .row .col.eleven {
-    width: 96%;
-  }
-  .stack-full-width .row .col.twelve {
-    width: 96%;
   }
 }
 *,
@@ -565,32 +515,16 @@ p {
   -ms-transform: translate3d(250px, 0, 0);
   transform: translate3d(250px, 0, 0);
 }
-@media all and (max-width: 899px) {
-  #siteNav {
-    z-index: 0;
-    padding-left: 2rem;
-    width: 100%;
-  }
-  #siteNav .logo {
-    margin: 1rem 0;
-  }
-  #siteNav li {
-    margin: 2rem 0;
-  }
-  .menu-container {
-    display: block;
-    pointer-events: initial;
-  }
-  .menu-container .menu-icon {
-    width: 25px;
-    height: 21px;
-    background-position: -374px -182px;
-    -webkit-background-size: 400px 364px;
-    -moz-background-size: 400px 364px;
-    background-size: 400px 364px;
-  }
+#dropboxBusiness {
+  padding: 7.8rem 0 5.9rem;
+  background: #fff;
 }
-.business-image-start,
+#dropboxBusiness .business-window {
+  display: inline-block;
+  overflow: hidden;
+  height: 20rem;
+  width: 100%;
+}
 #dropboxBusiness .business-window .business-power,
 #dropboxBusiness .business-window .business-security,
 #dropboxBusiness .business-window .business-investment {
@@ -605,14 +539,28 @@ p {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
 }
-#dropboxBusiness {
-  padding: 7.8rem 0 5.9rem;
+#dropboxBusiness .business-window .business-power.animate,
+#dropboxBusiness .business-window .business-security.animate,
+#dropboxBusiness .business-window .business-investment.animate {
+  -webkit-animation: BUSINESS_TRANSITION_IN 0.55s 1 forwards;
+  -moz-animation: BUSINESS_TRANSITION_IN 0.55s 1 forwards;
+  -o-animation: BUSINESS_TRANSITION_IN 0.55s 1 forwards;
+  -ms-animation: BUSINESS_TRANSITION_IN 0.55s 1 forwards;
+  animation: BUSINESS_TRANSITION_IN 0.55s 1 forwards;
 }
-#dropboxBusiness .business-window {
-  display: inline-block;
-  overflow: hidden;
-  height: 20rem;
-  width: 100%;
+#dropboxBusiness .business-window .business-power.final-state,
+#dropboxBusiness .business-window .business-security.final-state,
+#dropboxBusiness .business-window .business-investment.final-state {
+  -webkit-transform: translate3d(0, 0, 0) scale(1);
+  -moz-transform: translate3d(0, 0, 0) scale(1);
+  -o-transform: translate3d(0, 0, 0) scale(1);
+  -ms-transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
+  -webkit-filter: blur(0);
+  filter: blur(0);
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
 #dropboxBusiness .business-window .business-power {
   width: 200px;
@@ -621,13 +569,6 @@ p {
   -webkit-background-size: 400px 364px;
   -moz-background-size: 400px 364px;
   background-size: 400px 364px;
-}
-#dropboxBusiness .business-window .business-power.animate {
-  -webkit-animation: BUSINESS_TRANSITION_IN 0.55s 0s 1 forwards;
-  -moz-animation: BUSINESS_TRANSITION_IN 0.55s 0s 1 forwards;
-  -o-animation: BUSINESS_TRANSITION_IN 0.55s 0s 1 forwards;
-  -ms-animation: BUSINESS_TRANSITION_IN 0.55s 0s 1 forwards;
-  animation: BUSINESS_TRANSITION_IN 0.55s 0s 1 forwards;
 }
 #dropboxBusiness .business-window .business-security {
   width: 200px;
@@ -638,11 +579,11 @@ p {
   background-size: 400px 364px;
 }
 #dropboxBusiness .business-window .business-security.animate {
-  -webkit-animation: BUSINESS_TRANSITION_IN 0.55s 0.25s 1 forwards;
-  -moz-animation: BUSINESS_TRANSITION_IN 0.55s 0.25s 1 forwards;
-  -o-animation: BUSINESS_TRANSITION_IN 0.55s 0.25s 1 forwards;
-  -ms-animation: BUSINESS_TRANSITION_IN 0.55s 0.25s 1 forwards;
-  animation: BUSINESS_TRANSITION_IN 0.55s 0.25s 1 forwards;
+  -webkit-animation-delay: 0.25s;
+  -moz-animation-delay: 0.25s;
+  -o-animation-delay: 0.25s;
+  -ms-animation-delay: 0.25s;
+  animation-delay: 0.25s;
 }
 #dropboxBusiness .business-window .business-investment {
   width: 200px;
@@ -653,11 +594,11 @@ p {
   background-size: 400px 364px;
 }
 #dropboxBusiness .business-window .business-investment.animate {
-  -webkit-animation: BUSINESS_TRANSITION_IN 0.55s 0.5s 1 forwards;
-  -moz-animation: BUSINESS_TRANSITION_IN 0.55s 0.5s 1 forwards;
-  -o-animation: BUSINESS_TRANSITION_IN 0.55s 0.5s 1 forwards;
-  -ms-animation: BUSINESS_TRANSITION_IN 0.55s 0.5s 1 forwards;
-  animation: BUSINESS_TRANSITION_IN 0.55s 0.5s 1 forwards;
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  -o-animation-delay: 0.5s;
+  -ms-animation-delay: 0.5s;
+  animation-delay: 0.5s;
 }
 @-moz-keyframes BUSINESS_TRANSITION_IN {
   60% {
@@ -794,6 +735,95 @@ p {
     transform: translate3d(0, 0, 0) scale(1);
     -webkit-filter: blur(0);
     filter: blur(0);
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+}
+@media all and (max-width: 899px) {
+  body {
+    background-color: #8899a7;
+  }
+  .stack-full-width .row {
+    width: 100%;
+  }
+  .stack-full-width .row .col {
+    margin-right: 2%;
+  }
+  .stack-full-width .row .col:first-of-type {
+    margin-left: 2%;
+  }
+  .stack-full-width .row .col.six {
+    width: 90%;
+    margin: 0 5%;
+  }
+  #siteNav {
+    z-index: 0;
+    padding-left: 2rem;
+    width: 100%;
+  }
+  #siteNav .logo {
+    margin: 1rem 0;
+  }
+  #siteNav li {
+    margin: 2rem 0;
+  }
+  .menu-container {
+    display: block;
+    pointer-events: initial;
+  }
+  .menu-container .menu-icon {
+    width: 25px;
+    height: 21px;
+    background-position: -374px -182px;
+    -webkit-background-size: 400px 364px;
+    -moz-background-size: 400px 364px;
+    background-size: 400px 364px;
+  }
+  #dropboxBusiness {
+    padding: 3rem 0 2rem;
+  }
+  #dropboxBusiness.stack-full-width .row .col.four {
+    width: 90%;
+    margin: 5% 5% 0;
+  }
+  #dropboxBusiness h1 {
+    margin-bottom: 7rem;
+  }
+  #dropboxBusiness .why-business-description {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  #dropboxBusiness .why-business-description:last-of-type {
+    border-bottom: none;
+  }
+  #dropboxBusiness .business-window .business-power,
+  #dropboxBusiness .business-window .business-security,
+  #dropboxBusiness .business-window .business-investment {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    transform: none;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    transition: opacity 1s;
+    -webkit-filter: none;
+    filter: none;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  #dropboxBusiness .business-window .business-power.animate,
+  #dropboxBusiness .business-window .business-security.animate,
+  #dropboxBusiness .business-window .business-investment.animate {
+    -webkit-animation: none;
+    -moz-animation: none;
+    -o-animation: none;
+    -ms-animation: none;
+    animation: none;
     opacity: 1;
     -ms-filter: none;
     filter: none;
