@@ -741,6 +741,11 @@ p {
   }
 }
 @media all and (max-width: 899px) {
+  button.btn-large,
+  .btn.btn-large {
+    padding: 1.5rem 3rem;
+    font-size: 2rem;
+  }
   body {
     background-color: #8899a7;
   }
@@ -753,7 +758,10 @@ p {
   .stack-full-width .row .col:first-of-type {
     margin-left: 2%;
   }
-  .stack-full-width .row .col.six {
+  #heroArea {
+    padding: 11rem 0 7rem;
+  }
+  #heroArea.stack-full-width .row .col.six {
     width: 90%;
     margin: 0 5%;
   }
