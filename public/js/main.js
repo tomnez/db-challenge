@@ -65,7 +65,8 @@
     var gallery = $('#doForTeam').find('.gallery');
 
     if (gallery.length) {
-
+      console.log('hay');
+      // activate gallery once it's in view
       var galleryScrollHandler = function() {
         if (isElementInViewport(gallery)) {
           gallery.removeClass('deactivated');
@@ -73,12 +74,36 @@
         }
       };
 
+      var controls = $('.control-item');
+
+      // start gallery or add scroll listener
       if (isElementInViewport(gallery)) {
         gallery.removeClass('deactivated');
       } else {
         $(window).on('scroll', galleryScrollHandler);
       }
 
+      // left/right arrow clicks
+      $(document).on('click', '.gallery-forward, .gallery-back', function(e) {
+        // first check window location to see if item link is in there.
+        var path = window.pathname;
+
+        // this would need to be revisited if we were to implement
+        // hash links on this page or a frontend MV* that uses a
+        // hashtag for routing.
+        if (path.indexOf('#') !== -1) {
+          // break off query string if it exists
+          path = (path.indexOf('?') !== -1) ? path.split('?').shift() : path;
+
+          // get image number to use for index
+          var i = parseInt(path.split('-').pop(), 10) // if path is #item-3, return '3' and convert to intenger
+
+          // force a click on the nav control for the needed index
+          // LEFT OFF HERE. IF i !== controls.length bla bla bla
+        }
+        // if not, determine which slide is currently active
+        // (howwwww? get opacity of each slide maybe and grab the highest value?)
+      });
     }
   });
 
