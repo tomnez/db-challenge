@@ -1,0 +1,159 @@
+//==============================================================
+//   CSS GALLERY: VARS
+//==============================================================
+
+// these are the only values you should have to change
+// if you add/remove items or want to change the speed
+// of transitions or length that each image displays for.
+
+$gallery-items = 3;
+$gallery-item-display-duration = 6; // seconds
+$gallery-item-transition-duration = 1; // seconds
+$gallery-item-total-duration = ($gallery-item-transition-duration * 2) + $gallery-item-display-duration;
+$gallery-total-duration = ($gallery-item-total-duration * $gallery-items) - ($gallery-item-transition-duration * 2);
+
+.control-active {
+  background-color: $db-slate;
+}
+
+.control-inactive {
+  background-color: $db-blue;
+}
+
+//==============================================================
+//   CSS GALLERY: DEACTIVATED
+//==============================================================
+
+// the gallery will start with an initial class of 'deactivated'.
+// this will prevent the browser from running the animations before
+// the gallery is in view. once the gallery is in view, the class
+// is removed via javascript in main.js
+
+.gallery.deactivated {
+  .item {
+    animation: none;
+  }
+  .controls .control-item {
+    animation: none;
+  }
+}
+
+//==============================================================
+//   CSS GALLERY: STYLES and LAYOUT
+//==============================================================
+
+// layout
+.gallery {
+  position: relative;
+  height: 300px;
+
+  .item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: grey;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity .25s;
+
+    &:first-of-type {
+      opacity: 1;
+    }
+  }
+
+  .controls {
+    position: absolute;
+    bottom: -4rem;
+    width: 100%;
+    font-size: 4rem;
+    text-align:center;
+    z-index: 11;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+//==============================================================
+//   CSS GALLERY: CONTROLS
+//==============================================================
+
+// controls
+.gallery {
+  .item {
+    animation: GALLERY_ANIMATION ($gallery-total-duration - $gallery-item-transition-duration)s infinite;
+  }
+  .controls {
+    .control-item {
+      @extend .control-inactive;
+      animation: CONTROL_ANIMATION ($gallery-total-duration - $gallery-item-transition-duration)s infinite;
+      display: inline-block;
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 100%;
+      margin: 0 1.2rem;
+    }
+  }
+  .control-operator {
+    // stop link hash jump FTW
+    display: none;
+
+    // stop playing animations
+    // if an item was selected
+    &:target ~ .item {
+      animation: none;
+    }
+    &:target ~ .controls .control-item {
+      @extend .control-inactive;
+      animation: none;
+    }
+  }
+}
+
+// 3 is total number of items
+for i in (1..$gallery-items)
+  $delay = (i - 1) * (($gallery-item-total-duration) - $gallery-item-transition-duration);
+  .gallery .control-operator:nth-of-type({i}):target ~ .item:nth-of-type({i}) { opacity: 1; }
+  .gallery .control-operator:nth-of-type({i}):target ~ .controls .control-item:nth-of-type({i}) {
+    @extend .control-active;
+  }
+  .item:nth-of-type({i}) {
+    animation-delay: ($delay)s;
+  }
+  .controls .control-item:nth-of-type({i}) {
+    animation-delay: ($delay)s;
+  }
+
+//==============================================================
+//   CSS GALLERY: KEYFRAMES
+//==============================================================
+
+// fade animation
+@keyframes GALLERY_ANIMATION {
+  0% {
+    opacity: 0;
+  }
+  7.69%, 30.77% {
+    opacity: 1;
+  }
+  38.46%, 100% {
+    opacity: 0;
+  }
+}
+
+// controls animate with their items
+@keyframes CONTROL_ANIMATION {
+  0% {
+    background-color: $db-blue;
+  }
+  7.69%, 30.77% {
+    background-color: $db-slate;
+  }
+  38.46%, 100% {
+    background-color: $db-blue;
+  }
+}

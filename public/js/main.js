@@ -21,38 +21,65 @@
     var windows = $('.business-window')
       , areVisible;
 
-    var scrollHandler = function() {
-      // if divs were already visible when page loaded,
-      // wait 200px and then apply animations.
-      if (areVisible) {
-        var scrollVal = $(window).scrollTop();
-        scrollVal > 200 && animateBusinessImages();
-      } else {
-        // otherwise, wait until they're in view
-        // and apply animation then.
-        isElementInViewport(windows) && animateBusinessImages();
-      }
-    }
-
     if (windows.length) {
+      // function to apply animation class
+      // once the image windows are in view
+      function animateBusinessImages() {
+        var images = windows.find('span[class^="business"]');
+        images.addClass('animate');
+
+        // prevent animation from running a second time
+        windows.last().on(animationEnd, function() {
+          images.addClass('final-state').removeClass('animate');
+        });
+
+        // remove scroll listener
+        $(window).off('scroll', scrollHandler);
+      }
+
+      // function to run on window scroll to
+      // check if image windows are in view
+      var scrollHandler = function() {
+        // if divs were already visible when page loaded,
+        // wait 200px and then apply animations.
+        if (areVisible) {
+          var scrollVal = $(window).scrollTop();
+          scrollVal > 200 && animateBusinessImages();
+        } else {
+          // otherwise, wait until they're in view
+          // and apply animation then.
+          isElementInViewport(windows) && animateBusinessImages();
+        }
+      };
+
+      // check if windows are already in view
+      // and listen for scroll event.
       areVisible = isElementInViewport(windows);
       $(window).on('scroll', scrollHandler);
     }
 
-    // apply animation class
-    function animateBusinessImages() {
-      var images = windows.find('span[class^="business"]');
-      images.addClass('animate');
+    // FOR TEAM - INIT GALLERY
+    // ----------------------------------------------
+    
+    // don't start animating gallery until it's in view
+    var gallery = $('#doForTeam').find('.gallery');
 
-      // prevent animation from running a second time
-      windows.last().on(animationEnd, function() {
-        images.addClass('final-state').removeClass('animate');
-      });
+    if (gallery.length) {
 
-      // remove scroll listener
-      $(window).off('scroll', scrollHandler);
+      var galleryScrollHandler = function() {
+        if (isElementInViewport(gallery)) {
+          gallery.removeClass('deactivated');
+          $(window).off('scroll', galleryScrollHandler);
+        }
+      };
+
+      if (isElementInViewport(gallery)) {
+        gallery.removeClass('deactivated');
+      } else {
+        $(window).on('scroll', galleryScrollHandler);
+      }
+
     }
-
   });
 
 
