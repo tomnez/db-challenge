@@ -125,6 +125,8 @@ table {
 #dropboxBusiness .business-window .business-power,
 #dropboxBusiness .business-window .business-security,
 #dropboxBusiness .business-window .business-investment,
+#doForTeam .arrow .icn-arrow-left,
+#doForTeam .arrow .icn-arrow-right,
 .menu-container .menu-icon {
   display: inline-block;
   background-image: url("sprites.png");
@@ -136,7 +138,8 @@ table {
 button,
 .btn,
 #heroArea .headline,
-#dropboxBusiness .why-business-description {
+#dropboxBusiness .why-business-description,
+#doForTeam .team-description {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
@@ -148,16 +151,19 @@ button,
   font-weight: 700;
 }
 .open-large-grey,
-#dropboxBusiness .why-business-description {
+#dropboxBusiness .why-business-description,
+#doForTeam .team-description {
   font-size: 3.7rem;
   color: #8899a7;
 }
 .open-medium-grey {
   font-size: 2.2rem;
+  line-height: 2.8rem;
   color: #8899a7;
 }
 .open-large-grey,
-#dropboxBusiness .why-business-description {
+#dropboxBusiness .why-business-description,
+#doForTeam .team-description {
   font-size: 1.5rem;
   color: #8899a7;
 }
@@ -202,8 +208,7 @@ button,
 }
 button:hover,
 .btn:hover {
-  background: #007ee5;
-  color: #fff;
+  background: #f4faff;
   cursor: pointer;
 }
 button.btn-large,
@@ -389,10 +394,6 @@ p {
 #heroArea .try-it-free {
   margin: 1rem 0;
 }
-#heroArea .try-it-free:hover {
-  background: #fff;
-  color: #007ee5;
-}
 #heroArea .or {
   color: #8ac7e7;
 }
@@ -518,6 +519,7 @@ p {
 #dropboxBusiness {
   padding: 7.8rem 0 5.9rem;
   background: #fff;
+  border-bottom: 1px solid #8899a7;
 }
 #dropboxBusiness .business-window {
   display: inline-block;
@@ -740,6 +742,321 @@ p {
     filter: none;
   }
 }
+.control-active,
+.gallery .control-operator:nth-of-type(1):target ~ .controls .control-item:nth-of-type(1),
+.gallery .control-operator:nth-of-type(2):target ~ .controls .control-item:nth-of-type(2),
+.gallery .control-operator:nth-of-type(3):target ~ .controls .control-item:nth-of-type(3) {
+  background-color: #8899a7;
+}
+.control-inactive,
+.gallery .controls .control-item,
+.gallery .control-operator:target ~ .controls .control-item {
+  background-color: #007ee5;
+}
+.gallery.deactivated .item {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -o-animation: none;
+  -ms-animation: none;
+  animation: none;
+}
+.gallery.deactivated .controls .control-item {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -o-animation: none;
+  -ms-animation: none;
+  animation: none;
+}
+.gallery {
+  position: relative;
+  height: 300px;
+}
+.gallery .item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #808080;
+  z-index: 0;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.25s;
+  -moz-transition: opacity 0.25s;
+  -o-transition: opacity 0.25s;
+  -ms-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+.gallery .item:first-of-type {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.gallery .controls {
+  position: absolute;
+  bottom: -4rem;
+  width: 100%;
+  font-size: 4rem;
+  text-align: center;
+  z-index: 11;
+}
+.gallery .controls a {
+  text-decoration: none;
+  color: inherit;
+}
+.gallery .item {
+  -webkit-animation: GALLERY_ANIMATION 21s infinite;
+  -moz-animation: GALLERY_ANIMATION 21s infinite;
+  -o-animation: GALLERY_ANIMATION 21s infinite;
+  -ms-animation: GALLERY_ANIMATION 21s infinite;
+  animation: GALLERY_ANIMATION 21s infinite;
+}
+.gallery .controls .control-item {
+  -webkit-animation: CONTROL_ANIMATION 21s infinite;
+  -moz-animation: CONTROL_ANIMATION 21s infinite;
+  -o-animation: CONTROL_ANIMATION 21s infinite;
+  -ms-animation: CONTROL_ANIMATION 21s infinite;
+  animation: CONTROL_ANIMATION 21s infinite;
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  margin: 0 1.2rem;
+}
+.gallery .control-operator {
+  display: none;
+}
+.gallery .control-operator:target ~ .item {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -o-animation: none;
+  -ms-animation: none;
+  animation: none;
+}
+.gallery .control-operator:target ~ .controls .control-item {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -o-animation: none;
+  -ms-animation: none;
+  animation: none;
+}
+.gallery .control-operator:nth-of-type(1):target ~ .item:nth-of-type(1) {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.item:nth-of-type(1) {
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  -ms-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.controls .control-item:nth-of-type(1) {
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  -ms-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.gallery .control-operator:nth-of-type(2):target ~ .item:nth-of-type(2) {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.item:nth-of-type(2) {
+  -webkit-animation-delay: 7s;
+  -moz-animation-delay: 7s;
+  -o-animation-delay: 7s;
+  -ms-animation-delay: 7s;
+  animation-delay: 7s;
+}
+.controls .control-item:nth-of-type(2) {
+  -webkit-animation-delay: 7s;
+  -moz-animation-delay: 7s;
+  -o-animation-delay: 7s;
+  -ms-animation-delay: 7s;
+  animation-delay: 7s;
+}
+.gallery .control-operator:nth-of-type(3):target ~ .item:nth-of-type(3) {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.item:nth-of-type(3) {
+  -webkit-animation-delay: 14s;
+  -moz-animation-delay: 14s;
+  -o-animation-delay: 14s;
+  -ms-animation-delay: 14s;
+  animation-delay: 14s;
+}
+.controls .control-item:nth-of-type(3) {
+  -webkit-animation-delay: 14s;
+  -moz-animation-delay: 14s;
+  -o-animation-delay: 14s;
+  -ms-animation-delay: 14s;
+  animation-delay: 14s;
+}
+@-moz-keyframes GALLERY_ANIMATION {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  7.69%, 30.77% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  38.46%, 100% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@-webkit-keyframes GALLERY_ANIMATION {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  7.69%, 30.77% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  38.46%, 100% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@-o-keyframes GALLERY_ANIMATION {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  7.69%, 30.77% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  38.46%, 100% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@keyframes GALLERY_ANIMATION {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  7.69%, 30.77% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  38.46%, 100% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+}
+@-moz-keyframes CONTROL_ANIMATION {
+  0% {
+    background-color: #007ee5;
+  }
+  7.69%, 30.77% {
+    background-color: #8899a7;
+  }
+  38.46%, 100% {
+    background-color: #007ee5;
+  }
+}
+@-webkit-keyframes CONTROL_ANIMATION {
+  0% {
+    background-color: #007ee5;
+  }
+  7.69%, 30.77% {
+    background-color: #8899a7;
+  }
+  38.46%, 100% {
+    background-color: #007ee5;
+  }
+}
+@-o-keyframes CONTROL_ANIMATION {
+  0% {
+    background-color: #007ee5;
+  }
+  7.69%, 30.77% {
+    background-color: #8899a7;
+  }
+  38.46%, 100% {
+    background-color: #007ee5;
+  }
+}
+@keyframes CONTROL_ANIMATION {
+  0% {
+    background-color: #007ee5;
+  }
+  7.69%, 30.77% {
+    background-color: #8899a7;
+  }
+  38.46%, 100% {
+    background-color: #007ee5;
+  }
+}
+#doForTeam {
+  padding: 7rem 0;
+  background: #fff;
+}
+#doForTeam .arrow {
+  padding-top: 17rem;
+}
+#doForTeam .arrow .icn-arrow-left {
+  width: 16px;
+  height: 30px;
+  background-position: -358px -182px;
+  -webkit-background-size: 400px 364px;
+  -moz-background-size: 400px 364px;
+  background-size: 400px 364px;
+}
+#doForTeam .arrow .icn-arrow-right {
+  width: 16px;
+  height: 30px;
+  background-position: -342px -182px;
+  -webkit-background-size: 400px 364px;
+  -moz-background-size: 400px 364px;
+  background-size: 400px 364px;
+}
+#doForTeam .gallery {
+  margin: 4rem 0 8rem;
+}
+#doForTeam .gallery [class^="gallery"] {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+#doForTeam .gallery .gallery1-img {
+  background-image: url("img/gallery1.jpg");
+}
+#doForTeam .gallery .gallery2-img {
+  background-image: url("img/gallery2.jpg");
+}
+#doForTeam .gallery .gallery3-img {
+  background-image: url("img/gallery3.jpg");
+}
+#doForTeam .team-description {
+  margin-bottom: 2rem;
+}
 @media all and (max-width: 899px) {
   button.btn-large,
   .btn.btn-large {
@@ -835,5 +1152,20 @@ p {
     opacity: 1;
     -ms-filter: none;
     filter: none;
+  }
+}
+@media all and (max-width: 685px) {
+  #doForTeam {
+    padding: 2rem 0;
+  }
+  #doForTeam.stack-full-width .row .col.six {
+    width: 90%;
+    margin: 5% 5% 0;
+  }
+  #doForTeam .gallery {
+    margin: 0 0 6rem;
+  }
+  #doForTeam .arrow {
+    display: none;
   }
 }
