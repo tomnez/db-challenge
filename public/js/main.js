@@ -24,7 +24,7 @@
     if (windows.length) {
       // function to apply animation class
       // once the image windows are in view
-      function animateBusinessImages() {
+      function animateBusinessImages () {
         var images = windows.find('span[class^="business"]');
         images.addClass('animate');
 
@@ -39,7 +39,7 @@
 
       // function to run on window scroll to
       // check if image windows are in view
-      var scrollHandler = function() {
+      var scrollHandler = function () {
         // if divs were already visible when page loaded,
         // wait 200px and then apply animations.
         if (areVisible) {
@@ -61,20 +61,28 @@
     // FOR TEAM - INIT GALLERY
     // ----------------------------------------------
     
-    // don't start animating gallery until it's in view
     var gallery = $('#doForTeam').find('.gallery');
 
     if (gallery.length) {
-      console.log('hay');
-      // activate gallery once it's in view
-      var galleryScrollHandler = function() {
+
+      // don't start animating gallery until it's in view
+      var galleryScrollHandler = function () {
         if (isElementInViewport(gallery)) {
           gallery.removeClass('deactivated');
           $(window).off('scroll', galleryScrollHandler);
         }
       };
 
-      var controls = $('.control-item');
+      // jump to next or prev image in gallery
+      var navigateToImage = function (controlItems, itemIndex, forward, backward) {
+        itemIndex = forward && ((itemIndex < controlItems.length) ? ++itemIndex : 1)
+            || backward && ((itemIndex === 1) ? controlItems.length : --itemIndex);
+        
+        window.location.hash = '#item-' + itemIndex;
+      };
+
+      var controls = gallery.find('.control-item')
+        , items = gallery.find('.item');
 
       // start gallery or add scroll listener
       if (isElementInViewport(gallery)) {
@@ -86,29 +94,50 @@
       // left/right arrow clicks
       $(document).on('click', '.gallery-forward, .gallery-back', function(e) {
         // first check window location to see if item link is in there.
-        var path = window.pathname;
+        var hashPath = window.location.hash
+          , target = $(e.target)
+          , forward = target.hasClass('gallery-forward')
+          , backward = target.hasClass('gallery-back');
 
         // this would need to be revisited if we were to implement
         // hash links on this page or a frontend MV* that uses a
         // hashtag for routing.
-        if (path.indexOf('#') !== -1) {
+        if (hashPath.indexOf('#') !== -1) {
           // break off query string if it exists
-          path = (path.indexOf('?') !== -1) ? path.split('?').shift() : path;
+          hashPath = (hashPath.indexOf('?') !== -1) ? hashPath.split('?').shift() : hashPath;
 
-          // get image number to use for index
-          var i = parseInt(path.split('-').pop(), 10) // if path is #item-3, return '3' and convert to intenger
+          // get current item number
+          var i = parseInt(hashPath.split('-').pop(), 10); // if hashPath is #item-3, return '3' and convert to intenger
 
-          // force a click on the nav control for the needed index
-          // LEFT OFF HERE. IF i !== controls.length bla bla bla
+          // jump to next or prev image in gallery
+          navigateToImage(controls, i, forward, backward);
+        } else {
+          // if not, determine which slide is currently active
+          // by grabbing the item with the highest opacity and
+          // going to the next/prev item.
+          var opacity = 0
+            , highestOpacityItemNumber;
+
+          for (var i = items.length - 1; i >= 0; i--) {
+            var item = items[i]
+              , elementOpacityValue = getComputedStyle(item,null).getPropertyValue("opacity");
+
+            if (elementOpacityValue > opacity) {
+              opacity = elementOpacityValue;
+              highestOpacityItemNumber = ++i;
+            }
+          };
+
+          navigateToImage(controls, highestOpacityItemNumber, forward, backward);
         }
-        // if not, determine which slide is currently active
-        // (howwwww? get opacity of each slide maybe and grab the highest value?)
+        
       });
     }
   });
 
 
-  // below not required for DOM ready
+  // Non-DOM ready stuff can go down here
+
   function isElementInViewport (el) {
     if (el instanceof jQuery) {
       el = el[0];
