@@ -115,3 +115,36 @@
   }
 
 }
+
+//==============================================================
+//   MEDIA QUERIES 0px to 685px
+//==============================================================
+
+@media all and (max-width: 685px) {
+
+  // TEAM / GALLERY
+  // ----------------------------------
+  #doForTeam {
+    padding: 2rem 0;
+
+    // grid overrides
+    &.stack-full-width {
+      .row {
+        .col.six {
+          width: 90%;
+          margin: 5% 5% 0;
+        }
+      }
+    }
+
+    // gallery overrides
+    .gallery {
+      margin: 0 0 6rem;
+    }
+
+    .arrow {
+      display: none;
+    }
+  }
+
+}

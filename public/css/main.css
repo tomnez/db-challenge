@@ -1013,6 +1013,7 @@ p {
 }
 #doForTeam {
   padding: 7rem 0;
+  background: #fff;
 }
 #doForTeam .arrow {
   padding-top: 17rem;
@@ -1151,5 +1152,20 @@ p {
     opacity: 1;
     -ms-filter: none;
     filter: none;
+  }
+}
+@media all and (max-width: 685px) {
+  #doForTeam {
+    padding: 2rem 0;
+  }
+  #doForTeam.stack-full-width .row .col.six {
+    width: 90%;
+    margin: 5% 5% 0;
+  }
+  #doForTeam .gallery {
+    margin: 0 0 6rem;
+  }
+  #doForTeam .arrow {
+    display: none;
   }
 }
