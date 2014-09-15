@@ -1,0 +1,96 @@
+//==============================================================
+//   VIDEO SECTION
+//==============================================================
+
+$video-section-height = 50rem;
+
+// overlay class to @extend
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#videoArea {
+  background: $white url('img/video-still.jpg') no-repeat center;
+  height: $video-section-height;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+
+  .headline-row {
+    margin-top: 6.7rem;
+  }
+
+  .play-btn {
+    sprite('player_large-2x');
+    margin-top: 6rem;
+    z-index: 11;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  // video overlay, hidden by default
+  .video-overlay {
+    @extend .overlay;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s;
+    &.video-playing {
+      opacity: .85;
+      pointer-events: initial;
+    }
+  }
+
+  // video container, hidden by default
+  .video-container {
+    @extend .overlay;
+    display: none;
+    pointer-events: none;
+    &.video-playing {
+      display: block;
+      pointer-events: initial;
+    }
+  }
+
+  // the play button will toggle the 'video-playing'
+  // classes on the overlay and video container.
+
+  #dropboxVideo {
+    margin-top: 7.5rem;
+  }
+
+  .video-fallback {
+    @extend .overlay;
+    .fallback-message {
+      color: $white;
+      font-size: 2rem;
+      line-height: 2.8rem;
+      margin-top: 6rem;
+      a {
+        color: $db-blue;
+      }
+    }
+  }
+}
+
+//==============================================================
+//   MEDIA QUERIES: RETINA
+//==============================================================
+
+@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dppx) {
+
+  #videoArea {
+    background: $white url('img/video-still@2x.jpg') no-repeat center;
+    background-size: cover;
+  }
+
+}
