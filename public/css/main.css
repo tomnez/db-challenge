@@ -127,6 +127,7 @@ table {
 #dropboxBusiness .business-window .business-investment,
 #doForTeam .arrow .icn-arrow-left,
 #doForTeam .arrow .icn-arrow-right,
+#videoArea .play-btn,
 .menu-container .menu-icon {
   display: inline-block;
   background-image: url("sprites.png");
@@ -1026,6 +1027,9 @@ p {
   -moz-background-size: 400px 364px;
   background-size: 400px 364px;
 }
+#doForTeam .arrow .icn-arrow-left:hover {
+  cursor: pointer;
+}
 #doForTeam .arrow .icn-arrow-right {
   width: 16px;
   height: 30px;
@@ -1033,6 +1037,9 @@ p {
   -webkit-background-size: 400px 364px;
   -moz-background-size: 400px 364px;
   background-size: 400px 364px;
+}
+#doForTeam .arrow .icn-arrow-right:hover {
+  cursor: pointer;
 }
 #doForTeam .gallery {
   margin: 4rem 0 8rem;
@@ -1056,6 +1063,89 @@ p {
 }
 #doForTeam .team-description {
   margin-bottom: 2rem;
+}
+.overlay,
+#videoArea .video-overlay,
+#videoArea .video-container,
+#videoArea .video-fallback {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#videoArea {
+  background: #fff url("img/video-still.jpg") no-repeat center;
+  height: 50rem;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+#videoArea .headline-row {
+  margin-top: 6.7rem;
+}
+#videoArea .play-btn {
+  width: 106px;
+  height: 106px;
+  background-position: -200px -182px;
+  -webkit-background-size: 400px 364px;
+  -moz-background-size: 400px 364px;
+  background-size: 400px 364px;
+  margin-top: 6rem;
+  z-index: 11;
+}
+#videoArea .play-btn:hover {
+  cursor: pointer;
+}
+#videoArea .video-overlay {
+  background: #000;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  pointer-events: none;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+#videoArea .video-overlay.video-playing {
+  opacity: 0.85;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+  filter: alpha(opacity=85);
+  pointer-events: initial;
+}
+#videoArea .video-container {
+  display: none;
+  pointer-events: none;
+}
+#videoArea .video-container.video-playing {
+  display: block;
+  pointer-events: initial;
+}
+#videoArea #dropboxVideo {
+  margin-top: 7.5rem;
+}
+#videoArea .video-fallback .fallback-message {
+  color: #fff;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  margin-top: 6rem;
+}
+#videoArea .video-fallback .fallback-message a {
+  color: #007ee5;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
+  #videoArea {
+    background: #fff url("img/video-still@2x.jpg") no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+  }
 }
 @media all and (max-width: 899px) {
   button.btn-large,
@@ -1152,6 +1242,19 @@ p {
     opacity: 1;
     -ms-filter: none;
     filter: none;
+  }
+  #videoArea {
+    height: 45rem;
+  }
+  #videoArea.stack-full-width .row .col.four {
+    width: 90%;
+    margin: 5%;
+  }
+  #videoArea .headline-row {
+    margin-top: 3rem;
+  }
+  #videoArea .play-btn {
+    margin: 0;
   }
 }
 @media all and (max-width: 685px) {

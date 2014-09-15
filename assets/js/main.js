@@ -133,6 +133,43 @@
         
       });
     }
+
+    // VIDEO PLAYER
+    // ----------------------------------------------
+
+    var videoContainer = $('.video-container');
+
+    if (videoContainer.length) {
+
+      var playBtn = $('.play-btn')
+        , video = document.getElementById('dropboxVideo')
+        , allContainers = $('.video-container, .video-overlay');
+
+      var exitVideo = function() {
+        video.currentTime = 0.1;
+        video.pause();
+        allContainers.removeClass('video-playing');
+      }
+
+      // show and play video
+      playBtn.on('click', function() {
+        allContainers.addClass('video-playing');
+        video.play();
+      });
+
+      // remove classes and reset video when mobile users click 'done'
+      video.addEventListener('webkitendfullscreen', function() {
+        exitVideo();
+      });
+
+      // remove classes and reset video when
+      // desktop users click overlay to close video
+      videoContainer.on('click', function() {
+        exitVideo();
+      });
+
+    }
+
   });
 
 
