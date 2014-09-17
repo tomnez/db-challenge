@@ -1,0 +1,45 @@
+//==============================================================
+//   FOOTER
+//==============================================================
+
+#footer {
+  padding: 6.5rem 0;
+  background: $white;
+
+  .footer-nav {
+    li {
+      @extend .open-small-regular;
+      margin: 1rem 0;
+
+      &.nav-title {
+        @extend .open-small-bold;
+      }
+
+      a {
+        text-decoration: none;
+        color: $db-slate;
+      }
+    }
+
+    .language-column {
+      @extend .open-small-regular;
+      margin-left: 0;
+      padding-top: .5rem;
+    }
+  }
+
+  .globe {
+    sprite('globe');
+    margin: 0 .4rem -0.3rem 0;
+  }
+
+  .triangle {
+    display: inline-block;
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid $db-slate;
+    margin: 0 0 .2rem .4rem;
+  }
+}
