@@ -143,8 +143,50 @@
   #teamSync {
     padding: 4rem 0;
 
+    // grid overrides
+    &.stack-full-width {
+      .row {
+        .col.twelve {
+          width: 90%;
+          margin: 0 5%;
+        }
+      }
+    }
+
     .try-it-now {
       margin: 2rem 0 4rem; 
+    }
+  }
+
+  // FOOTER
+  // ----------------------------------
+  #footer {
+    padding: 2rem 0;
+    background: $white;
+
+    // grid overrides
+    &.stack-full-width {
+      .row {
+        .col.two {
+          width: 30%;
+          margin: 5% 5% 0;
+        }
+      }
+    }
+
+    .footer-nav {
+      li {
+        font-size: 1.8rem;
+        margin: 2rem;
+      }
+
+      .language-column {
+        position: absolute;
+        padding-top: 0;
+        font-size: 1.8rem;
+        top: 1.5rem;
+        right: 0;
+      }
     }
   }
 
@@ -178,6 +220,39 @@
 
     .arrow {
       display: none;
+    }
+  }
+
+  // FOOTER
+  // ----------------------------------
+  #footer {
+    padding: 2rem 0;
+    background: $white;
+
+    // grid overrides
+    &.stack-full-width {
+      .row {
+        .col.two {
+          width: 90%;
+          margin: 5% 5% 0;
+        }
+      }
+    }
+
+    .footer-nav {
+      text-align: center;
+
+      li {
+        font-size: 2.2rem;
+        margin: 2.4rem;
+      }
+
+      .language-column {
+        position: relative;
+        font-size: 2.2rem;
+        text-align: center;
+        padding: 0 0 2rem 1rem;
+      }
     }
   }
 

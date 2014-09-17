@@ -121,6 +121,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+#footer .globe,
 #siteNav .logo,
 #dropboxBusiness .business-window .business-power,
 #dropboxBusiness .business-window .business-security,
@@ -138,6 +139,8 @@ table {
 .open-small-regular,
 button,
 .btn,
+#footer .footer-nav li,
+#footer .footer-nav .language-column,
 #heroArea .headline,
 #dropboxBusiness .why-business-description,
 #doForTeam .team-description,
@@ -147,6 +150,7 @@ button,
 }
 .font-bold,
 .open-small-bold,
+#footer .footer-nav li.nav-title,
 #siteNav li a.active,
 .menu-container .menu-label {
   font-family: 'Open Sans', sans-serif;
@@ -171,11 +175,14 @@ button,
   font-size: 1.5rem;
   color: #8899a7;
 }
-.open-small-bold {
+.open-small-bold,
+#footer .footer-nav li.nav-title {
   font-size: 1.3rem;
   color: #4c545a;
 }
-.open-small-regular {
+.open-small-regular,
+#footer .footer-nav li,
+#footer .footer-nav .language-column {
   font-size: 1.3rem;
   color: #4c545a;
 }
@@ -345,6 +352,39 @@ button.fade,
     width: 74.25rem;
   }
 }
+#footer {
+  padding: 6.5rem 0;
+  background: #fff;
+}
+#footer .footer-nav li {
+  margin: 1rem 0;
+}
+#footer .footer-nav li a {
+  text-decoration: none;
+  color: #8899a7;
+}
+#footer .footer-nav .language-column {
+  margin-left: 0;
+  padding-top: 0.5rem;
+}
+#footer .globe {
+  width: 17px;
+  height: 17px;
+  background-position: -306px -216px;
+  -webkit-background-size: 400px 364px;
+  -moz-background-size: 400px 364px;
+  background-size: 400px 364px;
+  margin: 0 0.4rem -0.3rem 0;
+}
+#footer .triangle {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #8899a7;
+  margin: 0 0 0.2rem 0.4rem;
+}
 *,
 *:before,
 *:after {
@@ -367,6 +407,9 @@ p {
 }
 .center {
   text-align: center;
+}
+.contents-right {
+  text-align: right;
 }
 #heroArea {
   background: #007ee5;
@@ -1274,8 +1317,31 @@ p {
   #teamSync {
     padding: 4rem 0;
   }
+  #teamSync.stack-full-width .row .col.twelve {
+    width: 90%;
+    margin: 0 5%;
+  }
   #teamSync .try-it-now {
     margin: 2rem 0 4rem;
+  }
+  #footer {
+    padding: 2rem 0;
+    background: #fff;
+  }
+  #footer.stack-full-width .row .col.two {
+    width: 30%;
+    margin: 5% 5% 0;
+  }
+  #footer .footer-nav li {
+    font-size: 1.8rem;
+    margin: 2rem;
+  }
+  #footer .footer-nav .language-column {
+    position: absolute;
+    padding-top: 0;
+    font-size: 1.8rem;
+    top: 1.5rem;
+    right: 0;
   }
 }
 @media all and (max-width: 685px) {
@@ -1291,5 +1357,26 @@ p {
   }
   #doForTeam .arrow {
     display: none;
+  }
+  #footer {
+    padding: 2rem 0;
+    background: #fff;
+  }
+  #footer.stack-full-width .row .col.two {
+    width: 90%;
+    margin: 5% 5% 0;
+  }
+  #footer .footer-nav {
+    text-align: center;
+  }
+  #footer .footer-nav li {
+    font-size: 2.2rem;
+    margin: 2.4rem;
+  }
+  #footer .footer-nav .language-column {
+    position: relative;
+    font-size: 2.2rem;
+    text-align: center;
+    padding: 0 0 2rem 1rem;
   }
 }
