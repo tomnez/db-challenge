@@ -16,7 +16,6 @@ In order to run the project in Node, you will need the following:
 
 * [Node.js](http://nodejs.org) (v0.10.x) and [npm](https://github.com/npm/npm) (v1.4.3 or later)
 * [GraphicsMagik](http://www.graphicsmagick.org) (v1.3.19 or later) — See [**Installing GraphicsMagick** section](https://github.com/tomnez/db-challenge#installing-graphicsmagick)
-* [Bower](http://bower.io/) (v1.3.0 or later) — `npm install bower -g`
 * [Gulp](https://github.com/gulpjs/gulp) (v3.5.6 or later) — `npm install gulp -g`
 
 ### Setup
