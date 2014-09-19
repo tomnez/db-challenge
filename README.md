@@ -47,6 +47,8 @@ In order to run the project in Node, you will need the following:
    ```sh
    $ node app
    ```
+   
+Now you can visit the page at `http://localhost:3000`
 
 ## Installing GraphicsMagick
 
